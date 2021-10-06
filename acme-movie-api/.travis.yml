@@ -1,9 +1,7 @@
 language: node_js
 node_js:
-  - "15.6.0"
-script:
-  - echo 'Build starts!!'
-  - echo 'Installing Deps!'
-  - yarn
-  - echo 'Testing!'
-  - npm run test:prod
+  - 14.15.4
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database acme_db;' -U postgres
